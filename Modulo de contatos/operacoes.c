@@ -85,4 +85,16 @@ int RemoverContato ( Contatos *ptrContatos, int indice ) {
     ptrContatos->lenght--;
     return true;
 }
+
+int PesquisarContato ( Contatos *ptrContatos, Contato contato ) {
+    for ( int i = 0; i < ptrContatos -> lenght; i++ ) {
+        if ( ptrContatos->contato[i].id == contato.id ) {
+            return i;
+        } else {
+            if ( ptrContatos->lenght == i ) {
+                return -1;
+            }
+        }
+    }
+}
  
