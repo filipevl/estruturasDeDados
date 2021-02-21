@@ -18,6 +18,14 @@ int listaCheia ( Contatos *ptrContatos ) {
     }
 }
 
+int listaVazia ( Contatos *ptrContatos ) {
+    if ( ptrContatos -> lenght < 0 ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 int inserirContatoNoFim ( Contatos *ptrContatos, Contato contato ) {
     if ( listaCheia ( ptrContatos ) ) {
         printf("Erro - lista cheia\n");
