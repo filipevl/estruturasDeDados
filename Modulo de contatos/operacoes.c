@@ -69,4 +69,20 @@ Contato BucarContato ( Contatos *ptrContatos, int indice ) {
     }
     return ptrContatos->contato[indice];
 }
+
+int RemoverContato ( Contatos *ptrContatos, int indice ) {
+    if ( listaVazia ( ptrContatos ) ) {
+        printf ("Erro lista vazia\n");
+        return false;
+    }
+    if ( indice < 0 || indice > ptrContatos -> lenght + 1  ) {
+        printf ("Erro posicao invalida\n");
+        return false;
+    }
+    for ( int i = indice; i < ptrContatos->lenght; i++ ) {
+        ptrContatos->contato[i] = ptrContatos->contato[i+1];
+    }
+    ptrContatos->lenght--;
+    return true;
+}
  
