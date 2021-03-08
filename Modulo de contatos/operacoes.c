@@ -41,7 +41,7 @@ int inserirContatoNoMeio ( Contatos *ptrContatos, int indice, Contato contato ) 
         printf("Erro - lista cheia\n");
         return false;
     }
-    if ( indice < 0 || indice > ptrContatos -> lenght + 1  ) {
+    if ( indice < 0 || indice > ptrContatos -> lenght  ) {
         printf ("Erro posicao invalida\n");
         return false;
     }
