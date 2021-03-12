@@ -45,3 +45,31 @@ void inserir_inicio ( No **lista, int elem ) {
         exit (1);
     }
 }
+
+void inserir_fim ( No **lista, int elem ) {
+    No *novo;
+    No *aux;
+    novo = alocar ();
+    if ( novo != 0 ) {
+        novo -> info = elem;
+        novo -> dir = 0;
+        novo -> esq = 0;
+        if ( listaVazia ( *lista ) ) {
+            *lista = novo;
+            return;
+        }
+        else {
+            aux = *lista;
+            while ( aux -> dir != 0 ) {
+                aux = aux -> dir;
+            }
+            aux -> dir = novo;
+            novo -> esq = aux;
+        }
+
+    }
+    else { 
+        printf ( "\nErro: falha na alocacao do noh!\n" );
+        exit (1);
+    }
+}
