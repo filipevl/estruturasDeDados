@@ -89,3 +89,11 @@ void remover_inicio ( No **lista) {
         q=0;
     }
 }
+
+No* pesquisar ( No *ptrLista, int elem ) {
+    No *aux = ptrLista;
+    while ( aux -> info != elem ) {
+        aux = aux -> dir;
+    }
+    return aux;
+}
