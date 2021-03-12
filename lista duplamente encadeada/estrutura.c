@@ -24,3 +24,24 @@ No* alocar () {
 void desalocarNo ( No* q ) {
     free (q);
 }
+
+void inserir_inicio ( No **lista, int elem ) {
+    No *novo;
+    novo = alocar();
+    if ( novo != 0 ) {
+        novo -> info = elem;
+        novo -> esq = 0;
+        novo -> dir = *lista;
+        if ( ! listaVazia ( *lista ) ) {
+            (*lista) -> esq = novo;
+            return;
+        }
+        else {
+            *lista = novo;
+        }
+    }
+    else {
+        printf ( "\nErro: falha na alocacao do noh!\n" );
+        exit (1);
+    }
+}
