@@ -94,6 +94,30 @@ No* pesquisar ( No *ptrLista, int elem ) {
     No *aux = ptrLista;
     while ( aux -> info != elem ) {
         aux = aux -> dir;
+        if ( aux -> dir == 0 ) {
+            break;
+        }
     }
     return aux;
+}
+
+int remover_valor ( No **lista, int elem) {
+    No *q = pesquisar ( *lista, elem );
+    if ( q != 0 ) {
+        if ( (*lista) == q ) {
+            remover_inicio (*lista);
+        }
+        else {
+            (q -> esq) -> dir = q -> dir;
+            if ( q -> dir != 0 ) {
+                (q -> dir) -> esq = q -> esq;
+            }
+            desalocarNo ( q );
+        }
+        return 1;
+    }
+    else {
+        printf ( "Nao foi possível remover o valor pois ele nao se econtra na lista" );
+        return 0;
+    }
 }
