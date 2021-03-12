@@ -73,3 +73,19 @@ void inserir_fim ( No **lista, int elem ) {
         exit (1);
     }
 }
+
+void remover_inicio ( No **lista) {
+    if ( listaVazia  (*lista) ) {
+        printf ( "Erro: lista vazia" );
+        exit (1);
+        return;
+    }
+    else {
+        No *q;
+        q = *lista;
+        *lista = q -> dir;
+        (*lista) -> esq = 0;
+        desalocarNo ( q );
+        q=0;
+    }
+}
